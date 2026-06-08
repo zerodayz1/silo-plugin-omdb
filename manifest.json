@@ -1,0 +1,50 @@
+{
+  "plugin_id": "silo.omdb",
+  "version": "0.1.0",
+  "checksum": "__CHECKSUM__",
+  "silo_api_version": "v1",
+  "supported_platforms": [
+    {
+      "os": "linux",
+      "arch": "amd64"
+    },
+    {
+      "os": "linux",
+      "arch": "arm64"
+    },
+    {
+      "os": "darwin",
+      "arch": "arm64"
+    }
+  ],
+  "capabilities": [
+    {
+      "type": "metadata_provider.v1",
+      "id": "imdb",
+      "display_name": "OMDb",
+      "description": "Enriches media items with IMDb ratings and Rotten Tomatoes critic scores via the OMDb API."
+    }
+  ],
+  "global_config_schema": [
+    {
+      "key": "omdb_credentials",
+      "title": "OMDb API Key",
+      "description": "API key from omdbapi.com. The free tier allows 1,000 requests/day; a paid key is needed for bulk backfills.",
+      "json_schema": "{\"type\":\"object\",\"required\":[\"api_key\"],\"properties\":{\"api_key\":{\"type\":\"string\",\"minLength\":1}},\"additionalProperties\":false}",
+      "required": true,
+      "admin_form": {
+        "submit_label": "Save OMDb credentials",
+        "fields": [
+          {
+            "key": "api_key",
+            "label": "API key",
+            "description": "Your OMDb API key. Leave blank to keep the existing key.",
+            "control": "ADMIN_FORM_CONTROL_PASSWORD",
+            "placeholder": "abc12345",
+            "required": true
+          }
+        ]
+      }
+    }
+  ]
+}
