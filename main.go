@@ -65,6 +65,14 @@ func (s *metadataServer) Search(_ context.Context, _ *pluginv1.SearchMetadataReq
 	return &pluginv1.SearchMetadataResponse{}, nil
 }
 
+func (s *metadataServer) GetSeasons(_ context.Context, _ *pluginv1.GetSeasonsRequest) (*pluginv1.GetSeasonsResponse, error) {
+	return &pluginv1.GetSeasonsResponse{}, nil
+}
+
+func (s *metadataServer) GetEpisodes(_ context.Context, _ *pluginv1.GetEpisodesRequest) (*pluginv1.GetEpisodesResponse, error) {
+	return &pluginv1.GetEpisodesResponse{}, nil
+}
+
 // GetMetadata looks up IMDb and Rotten Tomatoes ratings for the item's IMDb ID
 // and returns only the ratings — all other fields are left empty so they do not
 // overwrite data already contributed by a richer provider such as TMDB.
